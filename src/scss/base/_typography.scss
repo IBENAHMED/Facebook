@@ -1,0 +1,14 @@
+// body
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    background-color: $primary-background;
+
+    &::before {
+        content: "";
+        display: block;
+        top: 0%;
+        height: 53px;
+    }
+}

@@ -1,0 +1,83 @@
+.navbar {
+    @include flex(space-between, center, 0);
+    width: 100%;
+    padding-top: rem(5);
+    padding-bottom: rem(5);
+    background-color: $color-white;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
+    &_left {
+        @include flex(left, center, 10);
+        flex: 25%;
+        max-width: $sidebar-width;
+
+        @media ($md) {
+            flex: 100%;
+            min-width: 100%;
+        }
+    }
+
+    &_middle {
+        display: flex;
+        flex: 50%;
+        max-width: $feed-width;
+
+        @media ($md) {
+            display: none;
+        }
+    }
+
+    &_right {
+        max-width: $sidebar-width;
+        flex: 25%;
+
+        @media ($md) {
+            display: none;
+        }
+    }
+}
+
+// Navbar Left
+.navbar_left {
+    @extend %content-input-search;
+}
+
+// Navbar Midlle
+.navbar_middle {
+    .facebook-icons {
+        @include flex(space-around, center, 0);
+
+        width: 100%;
+
+        ul li a {
+            color: $icon-background-color;
+            font-size: 1.6rem;
+        }
+
+        .active {
+            color: $active-color;
+        }
+    }
+}
+
+// Navbar Right
+.navbar_right {
+    ul {
+        @include flex(space-around, center, 0);
+
+        .box-image img {
+            @include img-rounded(40, 40)
+        }
+
+        li a {
+            @include flex(center, center, 0);
+            @include circle-icon(40, 40);
+            font-size: 1.1rem;
+            color: rgba(0, 0, 0, 0.599);
+            padding: 10px;
+            background-color: $icon-background-color;
+        }
+    }
+}

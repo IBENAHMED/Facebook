@@ -1,0 +1,105 @@
+// mixin flex
+@mixin flex($justify: center, $algin: center, $gap: 10, $direction: row) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $algin;
+    flex-direction: $direction;
+    gap: rem($gap);
+}
+
+// box search in facebook
+@mixin input-rounded-box($size) {
+    height: rem($size);
+    border-radius: calc(rem($size)/2);
+    border: none;
+    outline: none;
+    padding: calc(rem($size)/2);
+    background-color: $background-input;
+}
+
+// img rounded
+@mixin img-rounded($width, $height) {
+    width: rem($width);
+    height: rem($height);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+// circle icon
+@mixin circle-icon($width, $height) {
+    width: rem($width);
+    height: rem($height);
+    border-radius: 50%;
+}
+
+// standar before
+@mixin before($top, $left, $width, $height, $color) {
+    content: "";
+    position: absolute;
+    left: $left;
+    top: $top;
+    width: $width;
+    height: $height;
+    background-color: $color
+}
+
+// border
+@mixin border($width, $color) {
+    border: $width solid $color;
+}
+
+//box
+@mixin components-box {
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: $shadow;
+    background-color: white;
+    margin-top: rem(10);
+}
+
+// Placeholder Selector
+
+// use in left
+%content-left {
+    @include flex(left, center, 10);
+    font-weight: $FontWeight;
+    font-size: 1rem;
+}
+
+// use in right
+%content-right-before-buttom {
+    padding-bottom: rem(15);
+    position: relative;
+
+    &::before {
+        @include before(100%, 0%, 100%, rem(2), $icon-background-color);
+    }
+}
+
+// style title
+%content_h4 {
+    color: $icon-color;
+    margin-top: rem(40);
+}
+
+// offect circle in profile   
+%border-circle-offect {
+    @include border(1px, $background-input);
+    outline: 1px solid $active-color;
+}
+
+// Globals input search
+%content-input-search {
+    .image-box img {
+        @include img-rounded(40, 40)
+    }
+
+    .input-box_text label {
+        width: 100%;
+
+        input {
+            @include input-rounded-box(40);
+            width: inherit;
+        }
+    }
+}
